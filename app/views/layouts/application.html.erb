@@ -4,22 +4,65 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "twitter client" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+    <body>
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section"> 
+            <h1 class="title">
+              twitter client
+              <% if current_user %>
+                (@<%= current_user.screen_name %>)
+              <% end %>
+            </h1> 
+          </section> 
+        </nav>
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Foundation</label></li>
+            <li>
+            <%= link_to 'タイムライン', timeline_path %>
+            </li>
+            <li><a href="#">follow</a></li>
+            <li><a href="#">follower</a></li>
+            <li><a href="#">lists</a></li>
+          </ul>
+        </aside>
+        <section class="main-section">
+          <% if notice %>
+          <div data-alert class="alert-box info">
+            <p><%= notice %></p>
+            <a href="#" class="close">&times;</a>
+          </div>
+          <% end %>
 
-    <% if current_user %>
-      <%= current_user.name %> <%= link_to 'ログアウト', logout_path %>
-    <% else %>
-      <%= link_to 'ログイン', '/auth/twitter' %>
-    <% end %>
+          <% if alert %>
+          <div data-alert class="alert-box warning">
+            <p><%= alert %></p>
+            <a href="#" class="close">&times;</a>
+          </div>
+          <% end %>
 
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+          <% if current_user %>
+            <%= link_to 'ログアウト', sign_out_path, class: 'button' %>
+          <% else %>
+            <%= link_to 'ログイン', '/auth/twitter', class: 'button' %>
+          <% end %>
+          <%= yield %>
+          <%= javascript_include_tag "application" %>
+        </section>
+        <a class="exit-off-canvas"></a>
+      </div>
+    </div>
   </body>
 </html>
