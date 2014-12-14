@@ -29,13 +29,26 @@
         </nav>
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-            <li><label>Foundation</label></li>
+            <li><label>MENU</label></li>
             <li>
-            <%= link_to 'タイムライン', timeline_path %>
+              <%= link_to 'タイムライン', timeline_path %>
             </li>
-            <li><a href="#">follow</a></li>
-            <li><a href="#">follower</a></li>
-            <li><a href="#">lists</a></li>
+            <li>
+              <%= link_to '@ツイート', mentions_timeline_path %>
+            </li>
+            <li>
+              <%= link_to 'フォロー', follow_path %>
+            </li>
+            <li>
+              <%= link_to 'フォロワー', followers_path %>
+            </li>
+            <li>
+              <% if current_user %>
+                <%= link_to 'ログアウト', sign_out_path %>
+              <% else %>
+                <%= link_to 'ログイン', '/auth/twitter' %>
+              <% end %>
+            </li>
           </ul>
         </aside>
         <section class="main-section">
@@ -54,10 +67,9 @@
           <% end %>
 
           <% if current_user %>
-            <%= link_to 'ログアウト', sign_out_path, class: 'button' %>
-          <% else %>
-            <%= link_to 'ログイン', '/auth/twitter', class: 'button' %>
+            <%= render 'elements/tweet' %>
           <% end %>
+
           <%= yield %>
           <%= javascript_include_tag "application" %>
         </section>

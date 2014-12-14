@@ -1,0 +1,5 @@
+div.row
+  div.small-12.columns
+    =form_tag(tweet_path, method: :post)
+      =text_area_tag 'tweet', nil, class: 'radius', maxlength: '140'
+      =submit_tag 'Send', data: { disable_with: "Sending..." }, class: 'button radius right'
