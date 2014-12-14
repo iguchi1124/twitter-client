@@ -13,10 +13,24 @@
 
   <body>
 
+    <% if notice %>
+    <div data-alert class="alert-box info">
+      <p><%= notice %></p>
+      <a href="#" class="close">&times;</a>
+    </div>
+    <% end %>
+
+    <% if alert %>
+    <div data-alert class="alert-box warning">
+      <p><%= alert %></p>
+      <a href="#" class="close">&times;</a>
+    </div>
+    <% end %>
+
     <% if current_user %>
-      <%= current_user.name %> <%= link_to 'ログアウト', logout_path %>
+      <%= current_user.name %> <%= link_to 'ログアウト', logout_path, class: 'button' %>
     <% else %>
-      <%= link_to 'ログイン', '/auth/twitter' %>
+      <%= link_to 'ログイン', '/auth/twitter', class: 'button' %>
     <% end %>
 
     <%= yield %>

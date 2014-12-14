@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20141214021053) do
     t.string   "uid"
     t.string   "screen_name"
     t.string   "name"
+    t.string   "token"
+    t.string   "secret"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
