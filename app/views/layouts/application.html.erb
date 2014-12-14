@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "twitter client" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -19,14 +19,23 @@
             <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
           </section>
           <section class="middle tab-bar-section"> 
-            <h1 class="title">Foundation</h1> 
+            <h1 class="title">
+              twitter client
+              <% if current_user %>
+                (@<%= current_user.screen_name %>)
+              <% end %>
+            </h1> 
           </section> 
         </nav>
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><label>Foundation</label></li>
-            <li><a href="#">The Psychohistorians</a></li>
-            <li><a href="#">...</a></li>
+            <li>
+            <%= link_to 'タイムライン', timeline_path %>
+            </li>
+            <li><a href="#">follow</a></li>
+            <li><a href="#">follower</a></li>
+            <li><a href="#">lists</a></li>
           </ul>
         </aside>
         <section class="main-section">
@@ -45,11 +54,10 @@
           <% end %>
 
           <% if current_user %>
-            <%= current_user.name %> <%= link_to 'ログアウト', logout_path, class: 'button' %>
+            <%= link_to 'ログアウト', sign_out_path, class: 'button' %>
           <% else %>
             <%= link_to 'ログイン', '/auth/twitter', class: 'button' %>
           <% end %>
-
           <%= yield %>
           <%= javascript_include_tag "application" %>
         </section>

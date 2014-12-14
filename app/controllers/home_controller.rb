@@ -1,12 +1,16 @@
 class HomeController < ApplicationController
-  before_action :login_required, only:[:tweet]
+  before_action :sign_in_required, except:[:index]
 
   def index
   end
 
+  def timeline
+    @tweets = twitter_client.home_timeline
+  end
+
   def tweet
     twitter_client.update("@null test")
-    flash[:notice] = "ツイートしました"
+    flash[:notice] = "ツイートしました。"
     redirect_to :root
   end
 
