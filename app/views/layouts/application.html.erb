@@ -29,13 +29,19 @@
         </nav>
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-            <li><label>Foundation</label></li>
+            <li><label>MENU</label></li>
             <li>
             <%= link_to 'タイムライン', timeline_path %>
             </li>
-            <li><a href="#">follow</a></li>
-            <li><a href="#">follower</a></li>
-            <li><a href="#">lists</a></li>
+            <li>
+            <%= link_to '@ツイート', mentions_timeline_path %>
+            </li>
+            <li>
+            <%= link_to 'フォロー', follow_path %>
+            </li>
+            <li>
+            <%= link_to 'フォロワー', followers_path %>
+            </li>
           </ul>
         </aside>
         <section class="main-section">

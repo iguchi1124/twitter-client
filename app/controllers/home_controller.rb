@@ -8,10 +8,22 @@ class HomeController < ApplicationController
     @tweets = twitter_client.home_timeline
   end
 
+  def mentions_timeline
+    @tweets = twitter_client.mentions_timeline
+  end
+
   def tweet
     twitter_client.update("@null test")
     flash[:notice] = "ツイートしました。"
     redirect_to :root
+  end
+
+  def follow
+    @users = twitter_client.friends
+  end
+
+  def followers
+    @users = twitter_client.followers
   end
 
   private
