@@ -45,3 +45,6 @@ gem 'settingslogic'
 
 # html template engine
 gem 'slim-rails'
+
+# styling framework
+gem 'foundation-rails'
