@@ -38,3 +38,13 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Twitter Sign in
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'settingslogic'
+
+# html template engine
+gem 'slim-rails'
+
+# styling framework
+gem 'foundation-rails'
