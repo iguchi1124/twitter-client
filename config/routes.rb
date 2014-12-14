@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/mentions_timeline', to: 'twitter/functions#mentions_timeline', as: 'mentions_timeline'
   get '/follow', to: 'twitter/functions#follow', as: 'follow'
   get '/followers', to: 'twitter/functions#followers', as: 'followers'
+  post '/tweet', to: 'twitter/functions#tweet'
 end

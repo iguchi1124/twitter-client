@@ -10,7 +10,7 @@ class Twitter::FunctionsController < ApplicationController
   end
 
   def tweet
-    twitter_client.update("@null test")
+    twitter_client.update params[:tweet]
     flash[:notice] = "ツイートしました。"
     redirect_to :root
   end
