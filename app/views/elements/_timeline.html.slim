@@ -1,0 +1,10 @@
+div.row
+  -@tweets.each do |tweet|
+    div.tweet-panel.large-12.columns
+      div.large-1.columns
+        =image_tag tweet.user.profile_image_url, class: 'tw_icon'
+      div.large-11.columns
+        p #{tweet.user.name} (@#{tweet.user.screen_name})
+        p #{tweet.text}
+        p リツイート数 #{tweet.retweet_count}
+        p お気に入り数 #{tweet.favorite_count}

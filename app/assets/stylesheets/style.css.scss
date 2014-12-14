@@ -1,0 +1,28 @@
+@import "foundation/components/panels";
+@import "foundation/components/thumbs";
+
+textarea#tweet{
+  margin-top: 15px;
+  resize: vertical;
+  height: 70px;
+}
+
+.tweet-panel {
+  @include panel(
+    $bg:white,
+    $padding:10px,
+    $adjust:true
+  );
+  margin: 0px;
+}
+
+.tw_icon {
+  @include thumb(
+    $border-width: 2px,
+    $box-shadow: 0 0 0 1px rgba(#000,.2),
+    $box-shadow-hover: 0 0 6px 1px rgba(#ccc,0.5)
+  );
+  margin: 3px;
+  height: 48px;
+  width: 48px;
+}

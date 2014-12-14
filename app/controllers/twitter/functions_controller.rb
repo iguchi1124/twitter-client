@@ -12,7 +12,7 @@ class Twitter::FunctionsController < ApplicationController
   def tweet
     twitter_client.update params[:tweet]
     flash[:notice] = "ツイートしました。"
-    redirect_to :root
+    redirect_to :back 
   end
 
   def follow
