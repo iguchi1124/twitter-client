@@ -64,6 +64,7 @@
           <% else %>
             <%= link_to 'ログイン', '/auth/twitter', class: 'button' %>
           <% end %>
+          <%= link_to 'tweet', tweet_path, class: 'button success' %>
           <%= yield %>
           <%= javascript_include_tag "application" %>
         </section>
