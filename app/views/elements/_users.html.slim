@@ -1,0 +1,10 @@
+-@users.each do |user|
+  div.user-panel.large-12.columns
+    div.large-1.columns
+      =image_tag user.profile_image_url, class: 'user-icon'
+    div.large-11.columns
+      p #{user.name}
+      p #{user.description}
+      p フォロワー #{user.followers_count}
+      p フォロー #{user.followe_count}
+      =link_to user.url, user.url
