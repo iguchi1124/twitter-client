@@ -15,7 +15,7 @@ class Twitter::FunctionsController < ApplicationController
     redirect_to :back 
   end
 
-  def follow
+  def friends
     @users = twitter_client.friends
   end
 

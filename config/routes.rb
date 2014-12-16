@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#callback'
   post '/auth/:provider/callback', to: 'sessions#callback'
   get '/sign_out' => 'sessions#destroy', as: :sign_out
-  get '/tweet', to: 'twitter/functions#tweet', as: 'tweet'
   get '/timeline', to: 'twitter/functions#timeline', as: 'timeline'
   get '/mentions_timeline', to: 'twitter/functions#mentions_timeline', as: 'mentions_timeline'
-  get '/follow', to: 'twitter/functions#follow', as: 'follow'
+  get '/friends', to: 'twitter/functions#friends', as: 'friends'
   get '/followers', to: 'twitter/functions#followers', as: 'followers'
   post '/tweet', to: 'twitter/functions#tweet'
 end

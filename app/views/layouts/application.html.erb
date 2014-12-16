@@ -37,7 +37,7 @@
               <%= link_to '@ツイート', mentions_timeline_path %>
             </li>
             <li>
-              <%= link_to 'フォロー', follow_path %>
+              <%= link_to 'フォロー', friends_path %>
             </li>
             <li>
               <%= link_to 'フォロワー', followers_path %>
@@ -64,10 +64,6 @@
             <p><%= alert %></p>
             <a href="#" class="close">&times;</a>
           </div>
-          <% end %>
-
-          <% if current_user %>
-            <%= render 'elements/tweet' %>
           <% end %>
 
           <%= yield %>
