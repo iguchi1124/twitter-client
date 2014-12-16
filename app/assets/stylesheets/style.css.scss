@@ -27,7 +27,7 @@ textarea#tweet{
   width: 48px;
 }
 
-.user_panel {
+.user-panel {
   @include panel(
     $bg:white,
     $padding:10px,
