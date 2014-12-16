@@ -7,15 +7,6 @@ textarea#tweet{
   height: 70px;
 }
 
-.tweet-panel {
-  @include panel(
-    $bg:white,
-    $padding:10px,
-    $adjust:true
-  );
-  margin: 0px;
-}
-
 .user_icon {
   @include thumb(
     $border-width: 2px,
@@ -25,6 +16,15 @@ textarea#tweet{
   margin: 3px;
   height: 48px;
   width: 48px;
+}
+
+.tweet-panel {
+  @include panel(
+    $bg:white,
+    $padding:10px,
+    $adjust:true
+  );
+  margin: 0px;
 }
 
 .user-panel {

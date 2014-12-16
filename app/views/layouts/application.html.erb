@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <title><%= content_for?(:title) ? yield(:title) : "twitter client" %></title>
 
@@ -30,6 +30,7 @@
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><label>MENU</label></li>
+            <% if current_user %>
             <li>
               <%= link_to 'タイムライン', timeline_path %>
             </li>
@@ -43,12 +44,13 @@
               <%= link_to 'フォロワー', followers_path %>
             </li>
             <li>
-              <% if current_user %>
-                <%= link_to 'ログアウト', sign_out_path %>
-              <% else %>
-                <%= link_to 'ログイン', '/auth/twitter' %>
-              <% end %>
+              <%= link_to 'ログアウト', sign_out_path %>
             </li>
+            <% else %>
+            <li>
+              <%= link_to 'ログイン', '/auth/twitter' %>
+            </li>
+            <% end %>
           </ul>
         </aside>
         <section class="main-section">
