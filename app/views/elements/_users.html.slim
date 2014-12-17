@@ -5,6 +5,6 @@ div.row
         =image_tag user.profile_image_url, class: 'user-icon'
       div.large-11.columns
         p #{user.name}
-        p #{user.description}
+        =auto_link(user.description)
         p フォロワー #{user.followers_count}
         p フォロー #{user.friends_count}

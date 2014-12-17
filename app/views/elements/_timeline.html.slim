@@ -5,6 +5,6 @@ div.row
         =image_tag tweet.user.profile_image_url, class: 'user_icon'
       div.large-11.columns
         p #{tweet.user.name} (@#{tweet.user.screen_name})
-        p #{tweet.text}
+        =auto_link(tweet.text)
         p リツイート数 #{tweet.retweet_count}
         p お気に入り数 #{tweet.favorite_count}
