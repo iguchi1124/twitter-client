@@ -1,5 +1,5 @@
 class Twitter::FunctionsController < ApplicationController
-  before_action :sign_in_required, except:[:index]
+  before_action :sign_in_required
   helper_method :to_boolean?
 
   def timeline
