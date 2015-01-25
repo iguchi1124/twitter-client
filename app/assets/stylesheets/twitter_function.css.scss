@@ -1,5 +1,6 @@
 @import "foundation/components/panels";
 @import "foundation/components/thumbs";
+@import "foundation/components/inline-lists";
 
 textarea#tweet{
   margin-top: 15px;
@@ -34,4 +35,28 @@ textarea#tweet{
     $adjust:true
   );
   margin: 0px;
+}
+
+.tweet-action-list {
+  @include inline-list();
+  margin-top: 8px;
+  font-size: 15px;
+  li {
+    width: 50px;
+    line-height: 17px;
+    i {
+      float: left;
+      clear: both;
+      margin: 2px;
+    }
+    a {
+      color: gray;
+    }
+    a.retweeted {
+      color: green;
+    }
+    a.favorited {
+      color: orange;
+    }
+  }
 }

@@ -14,7 +14,7 @@ gem 'pg',       group: :production
 # Styling
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'slim-rails'
@@ -31,5 +31,7 @@ group :production do
 end
 
 gem 'rails_autolink'
+
+gem 'font-awesome-rails'
 
 ruby '2.1.5'

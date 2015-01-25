@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "twitter client" %></title>
+    <title><%= content_for?(:title) ? yield(:title) + " | いぐったー(α)" : "いぐったー(α)" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -20,8 +20,9 @@
           </section>
           <section class="middle tab-bar-section"> 
             <h1 class="title">
-              twitter client
-              <% if current_user %>
+              <%= fa_stacked_icon "twitter", base: "square-o" %>
+              いぐったー(α) 
+              <% if user_signed_in? %>
                 (@<%= current_user.screen_name %>)
               <% end %>
             </h1> 
@@ -68,7 +69,10 @@
           </div>
           <% end %>
 
-          <%= yield %>
+          <div id="container">
+            <%= yield %>
+          </div>
+
           <%= javascript_include_tag "application" %>
         </section>
         <a class="exit-off-canvas"></a>

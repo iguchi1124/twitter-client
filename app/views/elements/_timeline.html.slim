@@ -6,5 +6,10 @@ div.row
       div.large-11.columns
         p #{tweet.user.name} (@#{tweet.user.screen_name})
         =auto_link(tweet.text)
-        p リツイート数 #{tweet.retweet_count}
-        p お気に入り数 #{tweet.favorite_count}
+        ul.tweet-action-list
+          li
+            =link_to retweet_path(id: tweet.id, retweeted: tweet.retweeted), method: :post, remote: true, onClick: "changeColor(this, 'retweet', #{tweet.retweeted});", id: :retweet, class: (tweet.retweeted ? "retweeted" : "") do
+              =fa_icon "retweet", text: "#{tweet.retweet_count}"
+          li
+            =link_to favorite_path(id: tweet.id, favorited: tweet.favorited), method: :post, remote: true, onClick: "changeColor(this, 'favorite', #{tweet.favorited});", id: :favorite, class: (tweet.favorited ? "favorited" : "") do
+              =fa_icon "star", text: "#{tweet.favorite_count}"
