@@ -1,0 +1,23 @@
+@import "foundation/components/panels";
+
+.hero {
+  @include panel(
+    $bg:white,
+    $padding:30px
+  );
+  border: none;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: 0;
+}
+
+.follow-box {
+  @include panel();
+  text-align: center;
+  margin: 0;
+  p.explanation {
+    color: #555;
+    font-size: 16px;
+  }
+}

@@ -1,2 +1,10 @@
-div.page-header 
-  h2 いぐったーはスマートフォン用の軽量Twitter WEBクライアントです
+div.hero
+  h2 いぐったーはスマートフォン用のTwitter WEBクライアントです
+  p まずはTwitterで登録しタイムラインをみてみよう！
+  a.button.radius href="/auth/twitter" =fa_icon "twitter", text: "新規登録 or ログイン"
+
+div.follow-box
+  p.explanation @iguchi1124によるライセンスフリーのオリジナルツイッタークライアントです．ソースコードはgithubで(http://github.com/iguchi1124/)公開していますのでご自由にお使いください．
+  a (href="https://twitter.com/iguchi1124" class="twitter-follow-button" data-show-count="false" data-lang="ja" data-size="large") @iguchi1124さんをフォロー
+  javascript:
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

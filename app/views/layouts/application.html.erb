@@ -20,18 +20,14 @@
           </section>
           <section class="middle tab-bar-section"> 
             <h1 class="title">
-              <%= fa_stacked_icon "twitter", base: "square-o" %>
-              いぐったー(α) 
-              <% if user_signed_in? %>
-                (@<%= current_user.screen_name %>)
-              <% end %>
+              いぐったー(α)
             </h1> 
           </section> 
         </nav>
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><label>MENU</label></li>
-            <% if current_user %>
+            <% if user_signed_in? %>
             <li>
               <%= link_to 'タイムライン', timeline_path %>
             </li>
@@ -57,21 +53,19 @@
         <section class="main-section">
           <% if notice %>
           <div data-alert class="alert-box info">
-            <p><%= notice %></p>
+            <%= notice %>
             <a href="#" class="close">&times;</a>
           </div>
           <% end %>
 
           <% if alert %>
           <div data-alert class="alert-box warning">
-            <p><%= alert %></p>
+            <%= alert %>
             <a href="#" class="close">&times;</a>
           </div>
           <% end %>
 
-          <div id="container">
-            <%= yield %>
-          </div>
+          <%= yield %>
 
           <%= javascript_include_tag "application" %>
         </section>
